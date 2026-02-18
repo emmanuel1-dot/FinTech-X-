@@ -25,6 +25,18 @@
 
       <!-- // Affiche un menu de navigation différent pour les utilisateurs avec le rôle "client" -->
     @elseif(Auth::user()->role === 'client') 
+      <nav class="flex-1 mt-6 px-4 space-y-2 overflow-y-auto">
+      <a href="{{ route('client-get-product') }}" class="flex items-center p-3 rounded hover:bg-gray-100">
+        <span class="material-icons mr-3">dashboard</span> Product
+      </a>
+      <a href="#" class="flex items-center p-3 rounded hover:bg-gray-100">
+        <span class="material-icons mr-3">people</span> Users
+      </a>
+      
+      <a href="#" class="flex items-center p-3 rounded hover:bg-gray-100">
+        <span class="material-icons mr-3">settings</span> Settings
+      </a>
+      </nav>
     @endif
 
 

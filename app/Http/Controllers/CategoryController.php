@@ -32,4 +32,10 @@ class CategoryController extends Controller
         $category->delete();// supprimer la catégorie de la base de données
         return redirect()->route('list-categories')->with('status', 'Category deleted successfully');// redirection vers la liste des catégories avec un message de succès
     }
+
+    public function editCategory(Request $request, $id) 
+    {
+        
+
+    }
 }

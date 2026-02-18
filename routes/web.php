@@ -28,13 +28,16 @@ route::middleware('auth')->group(function (){
         Route::get('/add/categories/{id}',[CategoryController::class,'deleteCategory'])->name('delete-category'); // Route pour supprimer une catégorie
         Route::get('/product', [ProductController::class,'getProducts'])->name('get-products'); // Route pour afficher les produits
         Route::get('/add-product', [ProductController::class,'addProduct'])->name('add-product'); // Route pour ajouter un produit
-        Route::post('/store-product', [ProductController::class,'storeProduct'])->name('store-product'); // Route pour stocker un  produit ds l bd 
+        Route::post('/store-product', [ProductController::class,'storeProduct'])->name('store-product'); // Route pour stocker un  produit ds la base de donnees 
         Route::get('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product'); // Route pour supprimer un product
+        Route::get('/edit-product/{id}',[ProductController::class,'editProduct'])->name('edit-product'); // Route pour éditer un product
+        Route::post('/update-product/{id}',[ProductController::class,'updateProduct'])->name('update-product'); // Route pour éditer un product
 
         });
     // Route pour clients
     Route::prefix('clients')->middleware('role:client')->group(function () {
-        route::get('/index', [ClientController::class,'index']);
+        route::get('/index', [ClientController::class,'index']); // Route pour afficher la page d'accueil du client
+        route::get('/products', [ClientController::class,'getProducts'])->name('client-get-product'); // Route pour afficher les produits aux clients
     });
        
     });

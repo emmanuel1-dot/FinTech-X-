@@ -10,7 +10,7 @@
   <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-8">
     
     <!-- Titre -->
-    <h1 class="text-2xl font-semibold text-gray-800 text-center mb-6">
+    <h1 class="text-2xl font-semibold text-blue-800 text-center mb-6">
       Connexion à votre compte
     </h1>
 
@@ -20,7 +20,7 @@
       Identifiants incorrects. Veuillez réessayer.
     </div> -->
 
-    <form action="/login" method="POST" class="space-y-5" >
+    <form action="/login" method="POST" class="space-y-5 g-9" >
       @csrf
       <!-- Email -->
       <div>
@@ -33,35 +33,50 @@
           placeholder="exemple@entreprise.com"
           class="w-full rounded-md border px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-        <!-- Message d'erreur -->
+        <!-- Message d'erreur
         <!-- <p class="mt-1 text-sm text-red-600">
           Veuillez saisir une adresse email valide.
-        </p>
-      </div> -->
+        </p> -->
+      </div> 
 
       <!-- Mot de passe -->
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-1">
           Mot de passe
         </label>
-        <input
-         name="password"
-          type="password"
-          class="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        <input  
+         name="password" 
+         type="password"        
+          class="w-full rounded-md border border-black px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
         <!-- Message d'erreur -->
         <!-- <p class="mt-1 text-sm text-red-600">
           Le mot de passe est requis.
-        </p>
-      </div> -->
+        </p> -->
+      </div> 
+      <div class="flex justify-between ">
+        
+        <label >
+          <input type="checkbox" >
+          <span class="text-gray-800 italic ">Remember me</span>
+        </label>
+          <a href="#" class="text-red-700 italic text-sm">Password forgotten</a>
+
+      </div>
 
       <!-- Bouton -->
-      <button
+      <button  
         type="submit"
         class="w-full rounded-md bg-blue-600 py-2 text-white text-sm font-semibold hover:bg-blue-700 transition"
       >
-        Se connecter
+        Login
       </button>
+      
+      <div class="flex justify-between text-blue-400">
+        <span>Have you an account?</span> 
+        <a href="register">Create an account</a>
+      </div>
+
 
     </form>
 
