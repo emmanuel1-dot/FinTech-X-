@@ -1,0 +1,41 @@
+<?php
+
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
+use GuzzleHttp\Middleware;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\DashboardController;
+
+// //Route::get('/', function () {
+//     return view('welcome');
+// });
+
+
+Route ::get('/', [VisitorController::class,'home']);  // Route pour afficher la page d'accueil aux visiteurs
+Route ::get('/about', [VisitorController::class,'about']); // Route pour afficher la page "About" aux visiteurs
+Route ::get('/products', [VisitorController::class,'products']); // Route pour afficher les produits aux visiteurs
+
+route::middleware('auth')->group(function (){
+    // Route pour admins
+    
+    Route::prefix('admin')->middleware('role:admin')->group(function (){   // Route pour les admins avec le préfixe "admin" et le middleware "role:admin"
+        route::get('/dashboard',[DashboardController::class, 'index']); // Route pour le dashboard de l'admin
+        Route::get('/categories',[CategoryController::class,'getCategories'])->name('list-categories'); // Route pour afficher la liste des catégories
+        Route::post('/add/categories',[CategoryController::class,'addCategory'])->name('add-category'); // Route pour ajouter une catégorie
+        Route::get('/add/categories/{id}',[CategoryController::class,'deleteCategory'])->name('delete-category'); // Route pour supprimer une catégorie
+        Route::get('/product', [ProductController::class,'getProducts'])->name('get-products'); // Route pour afficher les produits
+        Route::get('/add-product', [ProductController::class,'addProduct'])->name('add-product'); // Route pour ajouter un produit
+        Route::post('/store-product', [ProductController::class,'storeProduct'])->name('store-product'); // Route pour stocker un  produit ds l bd 
+        Route::get('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product'); // Route pour supprimer un product
+
+        });
+    // Route pour clients
+    Route::prefix('clients')->middleware('role:client')->group(function () {
+        route::get('/index', [ClientController::class,'index']);
+    });
+       
+    });
+    
