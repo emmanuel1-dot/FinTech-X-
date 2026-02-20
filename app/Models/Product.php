@@ -28,7 +28,7 @@ class Product extends Model
    public function carts(): BelongsToMany  
    // cette fonction montre une relation entre la table products et la table carts via la classe 'cart'
    {
-    return $this->belongsToMany(Product::class,'carts_products b ','product_id',''); // la table pivot est 'carts_products' et les clés étrangères sont 'product_id' et 'cart_id'
+    return $this->belongsToMany(Product::class,'carts_products','product_id','cart_id'); // la table pivot est 'carts_products' et les clés étrangères sont 'product_id' et 'cart_id'
    }
 
 }

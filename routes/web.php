@@ -1,13 +1,14 @@
 <?php
 
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VisitorController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\VisitorController;
-use App\Http\Controllers\DashboardController;
 
 // //Route::get('/', function () {
 //     return view('welcome');
@@ -38,7 +39,8 @@ route::middleware('auth')->group(function (){
     Route::prefix('clients')->middleware('role:client')->group(function () {
         route::get('/index', [ClientController::class,'index']); // Route pour afficher la page d'accueil du client
         route::get('/products', [ClientController::class,'getProducts'])->name('client-get-product'); // Route pour afficher les produits aux clients
+
+       Route::post('/add-cart', [CartController::class, 'addCart']); // Route pour ajouter le produit au  panier du clients
     });
-       
-    });
+ });
     

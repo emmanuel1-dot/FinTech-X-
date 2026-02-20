@@ -68,17 +68,7 @@
         
         @endforeach
        
-        <!-- <tr class="hover:bg-gray-100">
-          <td class="p-3 border-b">Marie Dupont</td>
-          <td class="p-3 border-b">marie@example.com</td>
-          <td class="p-3 border-b">+257 987 654</td>
-          <td class="p-3 border-b">Woman</td>
-          <td class="p-3 border-b flex space-x-2">
-            <button class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600 transition">Edit</button>
-            <button class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600 transition">See</button>
-            <button class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600 transition">Delete</button>
-          </td>
-        </tr> -->
+       
       </tbody>
     </table>
   </div>
